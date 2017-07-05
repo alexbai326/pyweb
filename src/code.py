@@ -1,13 +1,13 @@
 import web
 render = web.template.render('templates/')
 urls = (
-  '/(.*)', 'index',
+  '/', 'index',
   '/add', 'add'
 )
 
 class index:
 
-    def GET(self,name):
+    def GET(self):
         #return "Hello, world!"
 
         #name = 'Bob'
@@ -16,7 +16,7 @@ class index:
         #i = web.input(name=None)
         #return render.index(i.name)
 
-        return render.index(name)
+        return render.index()
 
 class add:
 

@@ -1,7 +1,8 @@
 import web
 render = web.template.render('templates/')
 urls = (
-  '/(.*)', 'index'
+  '/(.*)', 'index',
+  '/add', 'add'
 )
 
 class index:
@@ -16,6 +17,19 @@ class index:
         #return render.index(i.name)
 
         return render.index(name)
+
+class add:
+
+    def POST(self):
+        i = web.input()
+        title = i.title
+        if title == "alex":
+            answer = "hi alex"
+            return render.add(answer)
+        else:
+            answer = "bye bai"
+            return render.add(answer)
+        #raise web.seeother('/')
 
 if __name__ == "__main__":
     app = web.application(urls, globals())
